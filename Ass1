@@ -1,0 +1,71 @@
+Theoretical Questions
+1. What is the Turing test, and how it is conducted?
+The Turing test is a test for passing/failing a machine to be truly intelligent. It is designed for the "acting humanly" definition of AI. It helps give a definition to what is an operational definition of intelligence. A person sits in a room and asks questions, and gets answers from two other rooms, one in which a person in responding and the other in which a machine is answering. The test is passed if the interrogator cannot decide which responder is the machine. To pass the test, one would need
+- Natural language processing
+- Knowledge representation
+- Automated reasoning
+- Machine learning
+To pass the total Turing test, one would also need
+- Computer vision
+- Robotics
+
+2. What is the relationship between thinking rationally and acting rationally? Is rational thinking an absolute condition for acting rationally?
+Thinking rationally uses the "laws of thought" approach. Using the information provided, one should come to the logically correct solution. Acting rationally is using this conclusion to act to achieve the best outcome, or best expected outcome. However, thinking rationally is only part of the rational agent. Reflexes such as removing your hand if you touch a hot plate is a reflex and does not include careful deliberation, yet it is still an important part of the rational agent. 
+
+3. What is Tarski’s “theory of reference” about?
+How to relate the objects in logic to objects in the real world. 
+
+4. Describe rationality. How is it defined?
+Rationality depends on four concepts
+- Performance measure
+- Knowledge about the environment
+- The possible actions
+- The percept sequence
+Definition of a rational agent (p.37):
+For each possible percept sequence, a rational agent should select an action that is expected to maximize its performance measure, given the evidence provided by the percept sequence and whatever built-in knowledge the agent has.
+
+5. Consider a robot whose task it is to cross the road. Its action portfolio looks like this: look-back, lookforward, look-left-look-right, go-forward, go-back, go-left and go-right.
+(a) While crossing the road, a helicopter falls down on the robot and smashes it. Is the robot rational?
+Yes. The percept sequence to date does not say anything about a falling helicopter. The robot could not know it would fall from the sky, so it has therefore acted rationally. 
+
+(b) While crossing the road on a green light, a passing car crashes into the robot, preventing it from
+crossing. Is the robot rational?
+No. The robot has an action to look left and right, and could easily have done so. It was not rational to cross the street without looking for cars. 
+
+6. Consider the vacuum cleaner world described in Chapter 2.2.1 of the textbook. Let us modify this
+vacuum environment so that the agent is penalized 1 point for each movement.
+(a) Can a simple reflex agent be rational for this environment? Explain your answer
+No. The simple reflex agent moves from the square it is currently in if this square is clean. It would then move aimlessly back and forth between the two squares when they were both clean. This would lead to a lot of movement penalties, which a rational agent would try to avoid. 
+
+(b) Can a reflex agent with state be rational in this environment? Explain your answer.
+Yes. If the agent remembers the state of the squares, it can stop moving when all the squares are clean. This would cause as little movement as possible, which is rational. 
+
+(c) Assume now that the simple reflex agent (i.e., no internal state) can perceive the clean/dirty status
+of both locations at the same time. Can this agent be rational? Explain your answer. In case it can
+be rational, design the agent function.
+Yes. If the agent is standing in A and A is dirty, it will suck. If if is clean and B is dirty, it will go to B. If the agent is standing in B and B is dirty, it will suck. If it is clean and A is dirty, it will go to A. If it perceives that both tiles are clean, it will stop moving.
+
+7. Consider the vacuum cleaner environment shown in Figure 2.3 in the textbook. Describe the environment
+using properties from Chapter 2.3.2, e.g. episodic/sequential, deterministic/stochastic etc. Explain
+selected values for properties in regards to the vacuum cleaner environment.
+Fully/partially observable => only partly observable, since the vacuum cleaner only knows whether the tile it is standing in is dirty or not, and not the state of the other one.
+Single/multi agent => single agent as there is only one agent in the environment; the vacuum cleaner itself. If there were other agents in that area that put dirt on the tiles, it will affect the vacuum cleaner's actions, and so it would be a mulit agent environment.
+Deterministic/stochastic => deterministic. The state of the environment (whether the tile is clean or dirty) decides the next state of the vacuum cleaner. There is, however, uncertainty elements, like when dirt appears on the tiles.
+Episodic/sequential => episodic. The vacuum cleaner does not have a memory, and so does not base its decisions on previous decisions. It receives a percept and then acts based on this percept only. 
+Static/dynamic => It is not defined whether a tile can become dirty while the vacuum cleaner is deliberating, but I would assume not. Therefore, the environment is static. 
+Discrete/continuous => the vacuum cleaner has a finite number of distinct percepts and actions, and so the environment would qualify as discrete. 
+Known/unknown => known, the outcomes of all the actions are known. 
+
+8. Discuss the advantages and limitations of these four basic kinds of agents:
+(a) Simple reflex agents
+Choose action based on current percept. The model is simple, but limited. It can only decide actions based on the current percept, meaning the correct decision can only be made if the environment is fully observable. For partially observable environments, one often lands in an infinite loop. 
+
+(b) Model-based reflex agents
+Contains a model of the world; how it works without the agent, and how the agent's actions affect it. This will allow the agent to keep an internal state of the part of the world it cannot see. This allows an agent to function in a partially observable environment. It is however limited to condition-action rules, which makes it difficult to adapt to new conditions. For ned conditions, one would have to rewrite the program of the agent. 
+
+(c) Goal-based agents
+In addition to state, the agent also has goals. In this way, one can decide actions even if the alternatives are perceived as the same, they can lead to different goals. This makes it possible to consider the future, what will happen, will it get me closer to my goal? This agent is more flexible, one only has to change the goal to make modifications to behaviour. 
+
+(d) Utility-based agents
+Performance measure to maximize utility internally. Getting to the destination is good, but getting there fast is better. A utility-based agent can consider different aspects to maximize utility. Makes it easier for the agent to adapt and learn. If goals are conflicting, one can make an appropriate tradeoff. However it requires ingenious algorithms to model the world and maximizing utility. True rationality in this sense has a great computational complexity
+
