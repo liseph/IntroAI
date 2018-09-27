@@ -152,7 +152,7 @@ def run(path):
     for line in board:
         print(line)
 
-# Uncomment for running program
+# Running task 1
 for board in ["../boards/board-1-1.txt",
               "../boards/board-1-2.txt",
               "../boards/board-1-3.txt",
